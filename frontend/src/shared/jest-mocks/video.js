@@ -3,5 +3,5 @@ export const videoMock = {
   title: 'foo',
   slug: 'bar',
   url: 'foobar',
-  isPublished: false
+  isPublic: false
 }

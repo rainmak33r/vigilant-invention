@@ -14,10 +14,17 @@ const Home = () => {
   }, [fetchVideos])
 
   const onCardClick = (id) => {
-    history.push(APP_URLS.video.replace(':id', id))
+    history.push(APP_URLS.videoDetails.replace(':id', id))
+  }
+
+  const onNewClick = () => {
+    history.push(APP_URLS.newVideo)
   }
 
   return <div className="container">
+    <div className="my-2">
+      <button onClick={onNewClick} className="mx-0.5 bg-green-700 rounded text-white px-4 py-2 focus:outline-none">Create</button>
+    </div>
     <List items={videos} onItemClick={onCardClick}/>
   </div>
 }

@@ -2,7 +2,7 @@ import useVideoApi from "../../shared/hooks/useVideoApi";
 import {useEffect, useState} from "react";
 import {useHistory, useParams} from "react-router-dom";
 import {APP_URLS} from "../../routes/app.urls";
-import VideoEditForm from "../../shared/components/forms/video-edit-form";
+import VideoForm from "../../shared/components/video-form";
 
 const Edit = () => {
   let {id} = useParams();
@@ -28,7 +28,7 @@ const Edit = () => {
 
   return <div className="container mx-autp px-4 md:px-5 px-20">
     <div className="px-4 py-6">
-      <VideoEditForm video={data} onSubmit={handleSaveVideo} onGoBack={handleGoBack}/>
+      <VideoForm video={data} onSubmit={handleSaveVideo} onGoBack={handleGoBack}/>
     </div>
   </div>
 }

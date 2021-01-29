@@ -17,7 +17,7 @@ const formReducer = (state, action) => {
   }
 }
 
-const VideoEditForm = ({video, onSubmit, onGoBack}) => {
+const VideoForm = ({video, onSubmit, onGoBack}) => {
   const [changed, setChanged] = useState(false)
   const [state, dispatch] = useReducer(formReducer, INITIAL_STATE)
 
@@ -42,15 +42,15 @@ const VideoEditForm = ({video, onSubmit, onGoBack}) => {
   const handleSubmit = (event) => {
     event.preventDefault()
     if(changed) {
-      onSubmit(state)
+      onSubmit({...video, ...state})
     } else {
       onGoBack()
 
     }
   }
 
-  return <form onSubmit={handleSubmit}>
-    <div className="flex md:flex-col flex-wrap">
+  return <form onSubmit={handleSubmit} data-testid="video-form">
+    <div className="flex md:flex-col flex-wrap" >
       <div className="md:w-full w-1/2 flex justify-start">
         <div className="flex flex-col md:w-full">
           <label htmlFor="title">Title</label>
@@ -89,11 +89,12 @@ const VideoEditForm = ({video, onSubmit, onGoBack}) => {
       </div>
       <div className="mx-0.5">
         <button type="submit"
-                className="mx-0.5 bg-green-500 rounded hover:bg-green-700 px-4 py-2 focus:outline-none">Save
+                className="mx-0.5 bg-green-500 rounded hover:bg-green-700 px-4 py-2 focus:outline-none">
+          {video ? 'Save' : 'Create'}
         </button>
       </div>
     </div>
   </form>
 }
 
-export default VideoEditForm
+export default VideoForm

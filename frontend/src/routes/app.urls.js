@@ -1,5 +1,6 @@
 export const APP_URLS = {
   home: '/',
-  video: '/details/:id',
+  newVideo: '/details/new',
+  videoDetails: '/details/:id',
   edit: '/details/:id/edit'
 };

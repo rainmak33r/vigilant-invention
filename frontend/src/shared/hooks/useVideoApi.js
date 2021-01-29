@@ -12,6 +12,16 @@ const useVideoApi = () => {
     }).then(res => res.json())
   }, [])
 
+  const create = useCallback((video) => {
+    return fetch(`${process.env.REACT_APP_API_HOST}/videos`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(video)
+    }).then(res => res.json())
+  }, [])
+
   const fetchList = useCallback(() => {
     return fetch(`${process.env.REACT_APP_API_HOST}/videos`).then(res => res.json())
   }, [])
@@ -24,7 +34,8 @@ const useVideoApi = () => {
   return {
     fetchVideos: fetchList,
     fetchVideoById: fetchById,
-    updateVideoById: updateById
+    updateVideoById: updateById,
+    createVideo: create
   }
 }
 
