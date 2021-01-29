@@ -2,10 +2,10 @@
 
 ##For this thing to run:
 
-###### npm install
+###### npm install && cd frontend && npm install
 
 ###Start Backend (Strapi)
-###### npm start
+###### npm build && npm start
 
 ###Start Frontend
-###### npm run start:fe
+###### cd frontend && npm run start:fe
